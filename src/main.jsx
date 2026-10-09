@@ -3,6 +3,11 @@ import './css/style.css';
 
 import Logo from './images/img.png';
 
+
+
+import CustomName from './components/Person/index';
+import { Honda, Bmw } from './components/Vehicle/index';
+import Test from './components/Vehicle/index';
 let element1 = <h1>This is my first element </h1>
 let element2 = <p>this is my paragraph</p>
 
@@ -72,9 +77,38 @@ const Images = (
 
     <h1>Image in source file</h1>
     <img src={Logo} alt='image' />
-    
+
   </div>
 )
 
 
-createRoot(document.getElementById('root')).render(Images);
+const Car = () => {
+  return (
+    <div style={{ border: '1px solid red', marginBottom: '5px', padding: '5px' }}>
+      <h1>I am car component</h1>
+      <p>This is my description</p>
+    </div>
+  )
+}
+
+const element6 = (
+  <div>
+    <Car />
+    <Car />
+    <Car />
+    <Car />
+
+  </div>
+)
+
+const element7 = (
+  <div>
+    <CustomName />
+    <Honda />
+    <Bmw />
+    <Test />
+  </div>
+
+)
+
+createRoot(document.getElementById('root')).render(element7);
