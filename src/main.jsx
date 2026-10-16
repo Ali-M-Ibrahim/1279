@@ -3,7 +3,7 @@ import './css/style.css';
 
 import Logo from './images/img.png';
 
-
+import Student from './components/Student/index'
 
 import CustomName from './components/Person/index';
 import { Honda, Bmw } from './components/Vehicle/index';
@@ -108,7 +108,27 @@ const element7 = (
     <Bmw />
     <Test />
   </div>
-
 )
 
-createRoot(document.getElementById('root')).render(element7);
+function sayHello() {
+  alert("hii class");
+}
+
+
+const address = {
+  country: "Lebanon",
+  city: "beirut",
+  zip: "0000"
+}
+
+
+
+const ListOfStudnets = (
+  <div className='container'>
+    <Student address={address} action={sayHello} canView={true} birthYear="2000" currentYear="2026" name="Ali Ibrahim" bio="this is my bio 1" img="https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down" promo="2020" />
+    <Student address={address} action={sayHello} canView={false} birthYear="2000" currentYear="2026" name="Aline Ibrahim" bio="this is my bio 2" img="https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down" promo="2025" />
+    <Student address={address} action={sayHello} canView={false} birthYear="2000" currentYear="2026" name="Joe Doe" bio="this is my bio 3" img="https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down" promo="2026" />
+  </div>
+)
+
+createRoot(document.getElementById('root')).render(ListOfStudnets);

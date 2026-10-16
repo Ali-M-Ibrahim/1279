@@ -1,0 +1,72 @@
+/* Base Card Styles */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 340px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover State */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Image formatting */
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Content Container */
+.card-content {
+    padding: 24px;
+}
+
+/* Tag Badge */
+.card-tag {
+    display: inline-block;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+/* Typography styles */
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Button CTA */
+.card-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4f46e5;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.card-button:hover {
+    background-color: #4338ca;
+}
