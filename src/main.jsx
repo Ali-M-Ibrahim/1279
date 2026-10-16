@@ -8,6 +8,10 @@ import Student from './components/Student/index'
 import CustomName from './components/Person/index';
 import { Honda, Bmw } from './components/Vehicle/index';
 import Test from './components/Vehicle/index';
+import List from './components/List/index';
+import { act } from 'react';
+
+
 let element1 = <h1>This is my first element </h1>
 let element2 = <p>this is my paragraph</p>
 
@@ -131,4 +135,52 @@ const ListOfStudnets = (
   </div>
 )
 
-createRoot(document.getElementById('root')).render(ListOfStudnets);
+
+const skills = ["html", "css", "js"];
+const jsxList = <List data={skills} />
+
+
+const ListOfStudents =
+  [
+    {
+      address: address,
+      action: sayHello,
+      canView: true,
+      birthYear: 2000,
+      currentYear: 2026,
+      name: "ali ibrahim",
+      bio: "bla bla bla",
+      promo: "2026",
+      img: "https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down"
+    },
+    {
+      address: address,
+      action: sayHello,
+      canView: true,
+      birthYear: 2000,
+      currentYear: 2026,
+      name: "Joe Doe",
+      bio: "bla bla bla",
+      promo: "2026",
+      img: "https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down"
+    },
+    {
+      address: address,
+      action: sayHello,
+      canView: true,
+      birthYear: 2000,
+      currentYear: 2026,
+      name: "Jane Doe",
+      bio: "bla bla bla",
+      promo: "2026",
+      img: "https://ua.edu.lb/contentfiles/41411Image.jpg?w=2000&h=2000&scale=down"
+    },
+  ]
+
+const Class = (props) => {
+  console.log(props);
+  const allStudents = props.data.map((obj) => <Student key={obj.name} address={obj.address} action={obj.action} canView={obj.canView} birthYear={obj.birthYear} currentYear={obj.currentYear} name={obj.name} bio={obj.bio} img={obj.img} promo={obj.promo} />)
+  return allStudents;
+}
+
+createRoot(document.getElementById('root')).render(<Class data={ListOfStudents} />);
