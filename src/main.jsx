@@ -1,51 +1,55 @@
 import { createRoot } from 'react-dom/client'
-import Car from './components/Car/index';
-import Portfolio from './components/Portfolio';
-import Login from './components/Login';
 import { useState } from 'react';
-const cars = (
-  <div>
-    <Car brand="honda" model="CRV" year={2000} />
-    <Car brand="BMW" model="C300" year={2010} />
-  </div>
-)
-
-
-const Main1 = () => {
-  const [auth, setAuth] = useState(false);
-  const toggleAuth = () => setAuth(!auth);
-  if (auth) {
-    return (
-      <div>
-        <Portfolio fct={toggleAuth} />
-
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <Login fct={toggleAuth} />
-      </div>
-    )
-  }
-
-}
-
-const Main = () => {
-  const [auth, setAuth] = useState(false);
-  const toggleAuth = () => setAuth(!auth);
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
+import './style.css';
+import Home from './components/Website/Home';
+import About from './components/Website/About';
+import Product from './components/Website/Product';
+import Contact from './components/Website/Contact';
+import Profile from './components/Website/Profile';
+const App = () => {
   return (
-    <div>
-      {auth ? <Portfolio fct={toggleAuth} /> : <Login fct={toggleAuth} />}
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about-us' element={<About />} />
+        <Route path='/contact-us' element={<Contact />} />
+        <Route path='/product/:id' element={<Product />} />
+        <Route path='/profile' element={<Profile />} />
 
-      {/* {auth ? <p>You are authenticated</p> : null} */}
+      </Routes>
+      <ul>
+        <li>
+          <NavLink activeclassname="active" to="/">
+            Home
+          </NavLink>
+        </li>
 
-      {auth && (
-        <p>You are authenticated</p>
-      )}
+        <li>
+          <Link to="/about-us">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact-us">
+            Contact
+          </Link>
+        </li>
 
-    </div>
+        <li>
+          <Link to="/product/1">
+            Product 1
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/product/2">
+            Product 2
+          </Link>
+        </li>
+
+      </ul>
+    </Router>
   )
 }
-
-createRoot(document.getElementById('root')).render(<Main />);
+createRoot(document.getElementById('root')).render(<App />);
